@@ -1,24 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import data from './data.json'
+import Products from './components/Products';
+
 
 function App() {
+
+  const [product, setProduct] = useState({
+    product: data.product
+  })
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
+    <div className="grid-container">
+      <header>
+        <a href="/">
+          Shopping Cart
         </a>
       </header>
+      <main>
+        <div className="content">
+          <div className="main">
+            <Products product={product}/>
+          </div>
+          <div className="sidebar">Cart Items</div>
+        </div>
+      </main>
+      <footer>
+        All right is reversed.
+      </footer>
     </div>
   );
 }
